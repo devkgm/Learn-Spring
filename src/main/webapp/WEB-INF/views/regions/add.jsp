@@ -1,9 +1,8 @@
-<%@page import="com.devkgm.app.departments.DepartmentDTO"%>
+<%@page import="com.devkgm.app.regions.RegionDTO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,11 +10,7 @@
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<style>
-	tr:hover {
-		cursor:pointer
-	}
-</style>
+
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -39,36 +34,32 @@
 	    </div>
 	  </div>
 	</nav>
-	<div class="container-sm">
-		<h1>Department List</h1>
+	<div  class="container-sm">
+		<h1>Regions Add</h1>
+		<form action="/regions/add" method="post">
 		<table class="table table-hover">
 			<thead>
 				<tr>
 					<th>ID</th>
 					<th>NAME</th>
-					<th>MANAGER_ID</th>
-					<th>LACATION_ID</th>
 				</tr>
 			</thead>
-			<tbody>
-				<c:forEach items="${requestScope.list}" var="dto">
-					<tr onclick="handleClick(${pageScope.dto.department_id })">
-						<td>${pageScope.dto.department_id }</td>
-						<td>${pageScope.dto.department_name }</td>
-						<td>${pageScope.dto.manager_id }</td>
-						<td>${pageScope.dto.lacation_id }</td>
-					</tr>
-				</c:forEach>
+			<tbody>	
+				<tr>
+					<td><input name="region_id" placeholder="ID를 입력하세요."></td>
+					<td><input name="region_name" placeholder="지역이름을 입력하세요."></td>
+				</tr>
 			</tbody>
 		</table>
+		<button type="submit" class="btn btn-primary">업로드</button>
+		</form>
+		
+		
 	</div>
-	<script>
-		function handleClick (id) {
-			location.href = "/departments/detail?id="+id;
-		}
-	</script>
+	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
 </body>
 </html>

@@ -18,4 +18,13 @@ public class DepartmentController {
 		request.setAttribute("list", list);
 		return "departments/list";
 	}
+	@RequestMapping(value = "/detail", method = RequestMethod.GET)
+	public String detail(HttpServletRequest request) throws Exception {
+		DepartmentDAO dao = new DepartmentDAO();
+		DepartmentDTO dto = new DepartmentDTO();
+		dto.setDepartment_id(Integer.parseInt(request.getParameter("id")) );
+		dto = dao.getDetail(dto);
+		request.setAttribute("dto", dto);
+		return "departments/detail";
+	}
 }

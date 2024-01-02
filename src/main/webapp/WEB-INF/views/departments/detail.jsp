@@ -11,11 +11,7 @@
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<style>
-	tr:hover {
-		cursor:pointer
-	}
-</style>
+
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -40,7 +36,7 @@
 	  </div>
 	</nav>
 	<div class="container-sm">
-		<h1>Department List</h1>
+		<h1>Department Detail</h1>
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -51,14 +47,14 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${requestScope.list}" var="dto">
-					<tr onclick="handleClick(${pageScope.dto.department_id })">
-						<td>${pageScope.dto.department_id }</td>
-						<td>${pageScope.dto.department_name }</td>
-						<td>${pageScope.dto.manager_id }</td>
-						<td>${pageScope.dto.lacation_id }</td>
-					</tr>
-				</c:forEach>
+
+				<tr>
+					<td>${requestScope.dto.department_id }</td>
+					<td>${requestScope.dto.department_name }</td>
+					<td>${requestScope.dto.manager_id }</td>
+					<td>${requestScope.dto.lacation_id }</td>
+				</tr>
+
 			</tbody>
 		</table>
 	</div>
