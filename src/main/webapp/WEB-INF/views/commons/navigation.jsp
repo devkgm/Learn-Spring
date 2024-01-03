@@ -10,10 +10,7 @@
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/regions">Regions</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/departments">Departments</a>
+          <a class="nav-link" href="/products">Product</a>
         </li>
       </ul>
     </div>
