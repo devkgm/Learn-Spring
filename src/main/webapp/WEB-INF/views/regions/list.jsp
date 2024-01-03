@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<c:import url="../commons/bootstrap_css.jsp"></c:import>
 <style>
 	tr:hover {
 		cursor:pointer
@@ -17,27 +17,7 @@
 </style>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg bg-body-tertiary">
-	  <div class="container-fluid">
-	    <a class="navbar-brand" href="/">Navbar</a>
-	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-	      <span class="navbar-toggler-icon"></span>
-	    </button>
-	    <div class="collapse navbar-collapse" id="navbarNav">
-	      <ul class="navbar-nav">
-	        <li class="nav-item">
-	          <a class="nav-link active" aria-current="page" href="/">Home</a>
-	        </li>
-	        <li class="nav-item">
-	          <a class="nav-link" href="/regions/list">Regions</a>
-	        </li>
-	        <li class="nav-item">
-	          <a class="nav-link" href="/departments/list">Departments</a>
-	        </li>
-	      </ul>
-	    </div>
-	  </div>
-	</nav>
+	<c:import url="../commons/navigation.jsp"></c:import>
 	<div  class="container-sm">
 		<h1>Regions List</h1>
 		<table class="table table-hover">
@@ -57,19 +37,36 @@
 	
 			</tbody>
 		</table>
-		<button type="button" class="btn btn-primary" onclick="handleAddBtn()">지역추가</button>
+		<a class="btn btn-primary" href="/regions/add">지역추가</a>
 	</div>
+	<div class="toast-container position-fixed bottom-1 end-1 p-3">
+	  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+	    <div class="toast-header">
+	      <strong class="me-auto">알림</strong>
+	      <small>${date}</small>
+	      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+	    </div>
+	    <div class="toast-body">
+	      글이 추가되었습니다.
+	    </div>
+	  </div>
+	</div>
+	<c:import url="../commons/bootstrap_js.jsp"></c:import>
 	<script>
 		function handleClick(id){
-			location.href = "/regions/detail?id="+id;
+			location.href = "/regions/"+id;
 		}
-		function handleAddBtn(){
-			location.href = "/regions/add";
-		} 
-	</script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+		
+		
+		const toastLiveExample = document.getElementById('liveToast')
 
+		let msg = "${msg}"
+		if(msg){
+			const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+		  	toastBootstrap.show()
+		}
+	</script>
+	</script>
+	
 </body>
 </html>
