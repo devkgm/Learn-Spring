@@ -7,12 +7,17 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.devkim.app.util.DBConnector;
 
 @Repository
 public class RegionDAO {
+	@Autowired
+	private SqlSession sqlSession;
+	private final String namespace="com.devkgm.app.regions.RegionDAO.";
 	
 	public int update(RegionDTO dto) throws Exception{
 		Connection con = DBConnector.getConnector();
@@ -49,49 +54,10 @@ public class RegionDAO {
 	}
 	
 	public List<RegionDTO> getList() throws Exception{
-//		db접속 후 부서 테입블의 모든 정보를 출력
-
-	
-		List<RegionDTO> dtoList = new ArrayList<RegionDTO>();
-		Connection connection = DBConnector.getConnector();
-		String sql = "SELECT * FROM REGIONS";
-		PreparedStatement st = connection.prepareStatement(sql);
-		st.executeQuery();
-		ResultSet resultSet = st.getResultSet();
-		
-		while(resultSet.next()) {
-			RegionDTO regionDTO = new RegionDTO();
-			int RegionId = resultSet.getInt("REGION_ID");
-			String RegionName = resultSet.getString("REGION_NAME");
-			
-			regionDTO.setRegion_id(RegionId);
-			regionDTO.setRegion_name(RegionName);
-			
-			dtoList.add(regionDTO);
-		}
-		
-		DBConnector.disConnect(resultSet, st, connection);
-		return dtoList;
-		
-		
+		return sqlSession.selectList(namespace+"getList");
 	}
 	public RegionDTO getDetail(RegionDTO regionDTO) throws Exception {
-		RegionDTO dto = null;
-		Connection connection = DBConnector.getConnector();
-		String sql = "SELECT * FROM REGIONS WHERE REGION_ID = ?";
-		PreparedStatement st = connection.prepareStatement(sql);
-		st.setInt(1, regionDTO.getRegion_id());
-		
-		ResultSet resultSet = st.executeQuery();
-		
-		if(resultSet.next()) {
-			dto = new RegionDTO();
-			dto.setRegion_id(resultSet.getInt("REGION_ID"));
-			dto.setRegion_name(resultSet.getString("REGION_NAME"));
-		}
-		DBConnector.disConnect(resultSet, st, connection);
-		return dto;
-		
+		return sqlSession.selectOne(namespace+"getDetail", regionDTO);
 	}
 
 	
