@@ -34,7 +34,7 @@
 	</div>
 	<script>
 		function handleDeleteBtn  (id){
-			fetch("/regions/"+id,{method: "DELETE"});
+			fetch("./regions/"+id,{method: "DELETE"});
 		}
 	</script>
 	<c:import url="../commons/bootstrap_js.jsp"></c:import>

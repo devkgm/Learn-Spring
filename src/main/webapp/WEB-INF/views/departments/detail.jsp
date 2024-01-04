@@ -39,7 +39,7 @@
 	</div>
 	<script>
 		function handleClick (id) {
-			location.href = "/departments/detail?id="+id;
+			location.href = "./departments/detail?id="+id;
 		}
 	</script>
 	<c:import url="../commons/bootstrap_js.jsp"></c:import>
