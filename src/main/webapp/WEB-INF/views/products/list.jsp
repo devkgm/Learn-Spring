@@ -37,7 +37,7 @@
 	</div>
 	<script>
 		function handleClick(id){
-			location.href = "/products/"+id;
+			location.href = "./products/"+id;
 		}
 	</script>
 	<c:import url="../commons/bootstrap_js.jsp"></c:import>
