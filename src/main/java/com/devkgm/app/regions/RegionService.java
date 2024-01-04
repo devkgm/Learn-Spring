@@ -12,8 +12,9 @@ public class RegionService {
 	private RegionDAO regionDAO;
 	
 	public List<RegionDTO> getList() throws Exception{
-		List<RegionDTO> list = this.regionDAO.getList();
-		
-		return list;
+		return this.regionDAO.getList();
+	}
+	public RegionDTO getDetail(RegionDTO regionDTO) throws Exception{
+		return this.regionDAO.getDetail(regionDTO);
 	}
 }

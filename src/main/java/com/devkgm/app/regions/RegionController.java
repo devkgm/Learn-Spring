@@ -32,14 +32,14 @@ public class RegionController {
 		model.addAttribute("list", list);
 		return "regions/list"; 
 	}
-//	@RequestMapping(value= "/regions/{id}", method=RequestMethod.GET)
-//	public String detail(@PathVariable int id,HttpServletRequest request) throws Exception {
-//		RegionDTO regionDTO = new RegionDTO();
-//		regionDTO.setRegion_id(id);
-//		regionDTO = regionDAO.getDetail(regionDTO);
-//		request.setAttribute("dto", regionDTO);
-//		return "regions/detail";
-//	}
+	@RequestMapping(value= "/regions/{id}", method=RequestMethod.GET)
+	public String detail(@PathVariable int id,Model model) throws Exception {
+		RegionDTO regionDTO = new RegionDTO();
+		regionDTO.setRegion_id(id);
+		regionDTO = regionService.getDetail(regionDTO);
+		model.addAttribute("dto", regionDTO);
+		return "regions/detail";
+	}
 //	
 //	@RequestMapping(value="/regions/add", method=RequestMethod.GET)
 //	public String add() throws Exception{
