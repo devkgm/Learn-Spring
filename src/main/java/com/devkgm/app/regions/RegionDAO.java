@@ -7,9 +7,11 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
 
 import com.devkim.app.util.DBConnector;
 
+@Repository
 public class RegionDAO {
 	
 	public int update(RegionDTO dto) throws Exception{

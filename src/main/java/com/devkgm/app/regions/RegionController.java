@@ -9,6 +9,7 @@ import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,10 +21,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class RegionController {
+	@Autowired
 	private RegionDAO regionDAO;
-	public RegionController() {
-		this.regionDAO = new RegionDAO();
-	}
+//	public RegionController() {
+//		this.regionDAO = new RegionDAO();
+//	}
 	
 	
 	@RequestMapping(value = "/regions", method = RequestMethod.GET	)
