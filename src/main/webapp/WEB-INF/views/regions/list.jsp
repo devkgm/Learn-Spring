@@ -66,7 +66,6 @@
 		  	toastBootstrap.show()
 		}
 	</script>
-	</script>
 	
 </body>
 </html>

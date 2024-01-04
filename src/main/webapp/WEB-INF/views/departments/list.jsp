@@ -47,6 +47,6 @@
 			location.href = "./departments/"+id;
 		}
 	</script>
-	<c:import url="../commons/bootstrap_css.jsp"></c:import>
+	<c:import url="../commons/bootstrap_js.jsp"></c:import>
 </body>
 </html>
