@@ -31,7 +31,7 @@
 					<td>${requestScope.dto.department_id }</td>
 					<td>${requestScope.dto.department_name }</td>
 					<td>${requestScope.dto.manager_id }</td>
-					<td>${requestScope.dto.lacation_id }</td>
+					<td>${requestScope.dto.location_id }</td>
 				</tr>
 
 			</tbody>

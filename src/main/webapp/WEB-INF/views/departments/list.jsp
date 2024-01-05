@@ -36,7 +36,7 @@
 						<td>${pageScope.dto.department_id }</td>
 						<td>${pageScope.dto.department_name }</td>
 						<td>${pageScope.dto.manager_id }</td>
-						<td>${pageScope.dto.lacation_id }</td>
+						<td>${pageScope.dto.location_id }</td>
 					</tr>
 				</c:forEach>
 			</tbody>

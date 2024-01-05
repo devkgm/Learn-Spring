@@ -1,16 +1,16 @@
 <nav class="navbar navbar-expand-lg bg-primary mb-4" data-bs-theme="dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="./">Home</a>
+    <a class="navbar-brand" href="/">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="./regions">Regions</a>
+          <a class="nav-link" href="/regions/list">Regions</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./departments">Departments</a>
+          <a class="nav-link" href="/departments/list">Departments</a>
         </li>
       </ul>
     </div>

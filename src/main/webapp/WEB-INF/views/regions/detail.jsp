@@ -29,14 +29,14 @@
 				</tr>
 			</tbody>
 		</table>
-		<a type="button" class="btn btn-secondary" href="./edit">수정</a>
-		<button type="button" class="btn btn-danger" onclick="handleDeleteBtn(${requestScope.dto.region_id})">삭제</button>
+		<form id="frm" action="../delete" method="post">
+			<input hidden="true" value="${requestScope.dto.region_id}" name="region_id">
+		</form>
+		<button data-region-id="${requestScope.dto.region_id}" id="mod" type="button" class="btn btn-secondary">수정</button>
+		<button id="del" type="button" class="btn btn-danger">삭제</button>
 	</div>
-	<script>
-		function handleDeleteBtn  (id){
-			fetch("./regions/"+id,{method: "DELETE"});
-		}
-	</script>
+
+	<script src="../../resources/js/regionDetail.js"></script>
 	<c:import url="../commons/bootstrap_js.jsp"></c:import>
 </body>
 </html>

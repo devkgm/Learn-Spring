@@ -14,13 +14,14 @@
 <body>
 	<c:import url="../commons/navigation.jsp"></c:import>
 	<div  class="container-sm">
-		<h1>Regions Add</h1>
-		<form action="./add" method="post">
+		<h1>Regions Update</h1>
+		<form action="./update" method="post">
+		<input type="hidden" class="form-control" id="region_id" name="region_id" value="${dto.region_id }">
 		  <div class="mb-3">
 		    <label for="region_name" class="form-label">지역이름을 입력하세요.</label>
-		    <input type="text" class="form-control" id="region_name" name="region_name">
+		    <input type="text" class="form-control" id="region_name" name="region_name" value="${dto.region_name }">
 		  </div>
-		  <button type="submit" class="btn btn-primary">업로드</button>
+		  <button type="submit" class="btn btn-primary">업데이트</button>
 		</form>
 	</div>
 	

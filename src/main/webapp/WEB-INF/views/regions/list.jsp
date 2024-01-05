@@ -37,9 +37,9 @@
 	
 			</tbody>
 		</table>
-		<a class="btn btn-primary" href="./regions/add">지역추가</a>
+		<a class="btn btn-primary" href="./add">지역추가</a>
 	</div>
-	<div class="toast-container position-fixed bottom-1 end-1 p-3">
+	<div class="toast-container position-fixed bottom-0 end-0 p-4">
 	  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
 	    <div class="toast-header">
 	      <strong class="me-auto">알림</strong>
@@ -54,7 +54,7 @@
 	<c:import url="../commons/bootstrap_js.jsp"></c:import>
 	<script>
 		function handleClick(id){
-			location.href = "./regions/"+id;
+			location.href = "./detail/"+id;
 		}
 		
 		
