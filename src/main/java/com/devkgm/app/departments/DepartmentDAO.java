@@ -18,43 +18,16 @@ public class DepartmentDAO {
 	private SqlSession sqlSession;
 	private final String namespace="com.devkgm.app.departments.DepartmentDAO.";
 	
-	public int update(DepartmentDTO dto) throws Exception{
-		Connection con = DBConnector.getConnector();
-		String sql = "UPDATE DEPARTMENTS SET DEPARTMENT_NAME=?, LOCATION_ID=? WHERE DEPARTMENT_ID = ?";
-		PreparedStatement st = con.prepareStatement(sql);
-		st.setInt(3, dto.getDepartment_id());
-		st.setString(1, dto.getDepartment_name());
-		
-
-		st.setInt(2, dto.getLacation_id());
-		int result = st.executeUpdate();
-		
-		DBConnector.disConnect(st, con);
-		return result;
+	public int update(DepartmentDTO departmentDTO) throws Exception{
+		return sqlSession.update(namespace+"update",departmentDTO);
 	}
 	
-	public int delete(DepartmentDTO dto) throws Exception{
-		Connection con = DBConnector.getConnector();
-		String sql = "DELETE FROM DEPARTMENTS WHERE DEPARTMENT_ID = ?";
-		PreparedStatement st = con.prepareStatement(sql);
-		st.setInt(1, dto.getDepartment_id());
-		int result = st.executeUpdate();
-		DBConnector.disConnect(st, con);
-		return result;
+	public int delete(DepartmentDTO departmentDTO) throws Exception{
+		return sqlSession.delete(namespace+"delete", departmentDTO);
 	}
 	
-	public int add(DepartmentDTO dto) throws Exception{
-		Connection con = DBConnector.getConnector();
-		String sql = "INSERT INTO DEPARTMENTS VALUES (?,?,?,?)";
-		PreparedStatement st = con.prepareStatement(sql);
-		st.setInt(1, dto.getDepartment_id());
-		st.setString(2, dto.getDepartment_name());
-		st.setInt(3, dto.getManager_id());
-		st.setInt(4, dto.getLacation_id());
-		int result = st.executeUpdate();
-		
-		DBConnector.disConnect(st, con);
-		return result;
+	public int add(DepartmentDTO departmentDTO) throws Exception{
+		return sqlSession.insert(namespace+"add", departmentDTO);
 	}
 	
 	public List<DepartmentDTO> getList() throws Exception{

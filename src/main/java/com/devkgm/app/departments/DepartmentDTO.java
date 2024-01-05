@@ -4,7 +4,7 @@ public class DepartmentDTO {
 	private int department_id;
 	private String department_name;
 	private int manager_id;
-	private int lacation_id;
+	private int location_id;
 	public int getDepartment_id() {
 		return department_id;
 	}
@@ -23,11 +23,11 @@ public class DepartmentDTO {
 	public void setManager_id(int manager_id) {
 		this.manager_id = manager_id;
 	}
-	public int getLacation_id() {
-		return lacation_id;
+	public int getLocation_id() {
+		return location_id;
 	}
-	public void setLacation_id(int lacation_id) {
-		this.lacation_id = lacation_id;
+	public void setLocation_id(int location_id) {
+		this.location_id = location_id;
 	}
 	
 	
