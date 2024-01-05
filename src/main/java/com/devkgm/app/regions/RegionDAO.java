@@ -19,37 +19,16 @@ public class RegionDAO {
 	private SqlSession sqlSession;
 	private final String namespace="com.devkgm.app.regions.RegionDAO.";
 	
-	public int update(RegionDTO dto) throws Exception{
-		Connection con = DBConnector.getConnector();
-		String sql = "UPDATE REGIONS SET REGION_NAME = ? WHERE REGION_ID = ?";
-		PreparedStatement st = con.prepareStatement(sql);
-		st.setInt(2, dto.getRegion_id());
-		st.setString(1, dto.getRegion_name());
-		int result = st.executeUpdate();
-		
-		DBConnector.disConnect(st, con);
-		return result;
+	public int update(RegionDTO regionDTO) throws Exception{
+		return sqlSession.update(namespace+"update", regionDTO);
 	}
 	
-	public int delete(RegionDTO dto) throws Exception{
-		Connection con = DBConnector.getConnector();
-		String sql = "DELETE FROM REGIONS WHERE REGION_ID = ?";
-		PreparedStatement st = con.prepareStatement(sql);
-		st.setInt(1, dto.getRegion_id());
-		int result = st.executeUpdate();
-		DBConnector.disConnect(st, con);
-		return result;
+	public int delete(RegionDTO regionDTO) throws Exception{
+		return sqlSession.delete(namespace+"delete", regionDTO);
 	}
 	
-	public int add(RegionDTO dto) throws SQLIntegrityConstraintViolationException, Exception{
-		Connection con = DBConnector.getConnector();
-		String sql = "INSERT INTO REGIONS (REGION_ID, REGION_NAME) VALUES (?,?)";
-		PreparedStatement st = con.prepareStatement(sql);
-		st.setInt(1, dto.getRegion_id());
-		st.setString(2, dto.getRegion_name());
-		int result = st.executeUpdate();
-		DBConnector.disConnect( st, con);
-		return result;
+	public int add(RegionDTO regionDTO) throws Exception{
+		return sqlSession.insert(namespace+"add",regionDTO);
 		
 	}
 	

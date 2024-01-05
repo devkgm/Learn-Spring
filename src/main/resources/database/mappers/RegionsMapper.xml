@@ -6,6 +6,17 @@
     
 <!-- mapper namespace는 비우면 에러 -->
 <mapper namespace="com.devkgm.app.regions.RegionDAO">
+
+	<delete id="delete" parameterType="com.devkgm.app.regions.RegionDTO">
+		DELETE FROM REGIONS WHERE REGION_ID = #{region_id} 
+	</delete>
+
+	<update id="update" parameterType="com.devkgm.app.regions.RegionDTO">
+		UPDATE REGIONS SET REGION_NAME=#{region_name} WHERE REGION_ID = #{region_id}
+	</update>
+	<insert id="add" parameterType="com.devkgm.app.regions.RegionDTO">
+		INSERT INTO REGIONS VALUES(REGIONS_SEQ.NEXTVAL,#{region_name})
+	</insert>
 	<select id="getDetail" resultType="com.devkgm.app.regions.RegionDTO" parameterType="com.devkgm.app.regions.RegionDTO">
 		SELECT * FROM REGIONS WHERE REGION_ID=#{region_id}
 	</select>
