@@ -44,7 +44,7 @@
 	</div>
 	<script>
 		function handleClick (id) {
-			location.href = "./departments/"+id;
+			location.href = "./detail?department_id="+id;
 		}
 	</script>
 	<c:import url="../commons/bootstrap_js.jsp"></c:import>
