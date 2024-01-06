@@ -6,5 +6,6 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.devkgm.app.product.ProductDTO" alias="ProductDTO"/>
+		<typeAlias type="com.devkgm.app.notice.NoticeDTO" alias="NoticeDTO"/>
 	</typeAliases>
 </configuration>
