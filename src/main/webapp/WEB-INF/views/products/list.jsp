@@ -34,6 +34,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		<a class="btn btn-primary" href="./add">상품추가</a>
 	</div>
 	<script>
 		function handleClick(id){
