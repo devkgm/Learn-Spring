@@ -21,7 +21,7 @@
 		  </div>
 		  <div class="mb-3">
 		    <label for="desciprtion" class="form-label">본문</label>
-		    <input type="text" readonly class="form-control" id="desciprtion" name="description" value="${dto.description }">
+		    <textarea style="height: 500px;"  readonly class="form-control" id="desciprtion" name="description" value="${dto.description }">${dto.description }</textarea>
 		  </div>
 		  <div class="mb-3">
 		    <label for="hit" class="form-label">조회수</label>

@@ -21,7 +21,7 @@
 		  </div>
 		  <div class="mb-3">
 		    <label for="desciprtion" class="form-label">본문</label>
-		    <input type="text" class="form-control" id="desciprtion" name="description" value="${dto.description }">
+		    <textarea type="text" style="height: 500px;" class="form-control" id="desciprtion" name="description" value="${dto.description }">${dto.description }</textarea>
 		  </div>
 		  <button class="btn btn-primary">업로드</button>
 		</form>
